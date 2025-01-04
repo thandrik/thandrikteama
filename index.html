@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raiane, Te Amo!</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #ff4b40;
+        }
+        .heart {
+            font-size: 50px;
+            color: red;
+            position: absolute;
+            animation: heartPop 1.5s ease-out forwards;
+            z-index: 100;
+        }
+        @keyframes heartPop {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Raiane, Te Amo Muito!</h1>
+
+    <div class="content">
+        <p>Você é a razão do meu sorriso. Sem você, nada faria sentido!</p>
+        <p>Eu amo cada momento que passamos juntos, Raiane.</p>
+        <p>Você é meu sonho que virou realidade.</p>
+        <p>Com você, eu sou feliz. E a vida ao seu lado é perfeita!</p>
+        <p>Agora, uma pergunta muito importante...</p>
+        
+        <!-- Pergunta "Casa comigo?" -->
+        <p>Casa comigo?</p>
+        
+        <button onclick="resposta('sim')">Sim</button>
+        <button onclick="resposta('nao')">Não</button>
+    </div>
+
+    <script>
+        // Função para exibir a resposta
+        function resposta(respostaEscolhida) {
+            const contentDiv = document.querySelector('.content');
+            if (respostaEscolhida === 'sim') {
+                contentDiv.innerHTML = "<p>Eu te amo muito, gata!</p>";
+                mostrarCoracao();
+            } else if (respostaEscolhida === 'nao') {
+                contentDiv.innerHTML = "<p>Poxa, gata...</p>";
+            }
+        }
+
+        // Função para mostrar os corações
+        function mostrarCoracao() {
+            for (let i = 0; i < 5; i++) {
+                let heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * window.innerWidth + 'px'; // posição aleatória na tela
+                heart.style.top = Math.random() * window.innerHeight + 'px';  // posição aleatória na tela
+                heart.innerHTML = "❤️";
+                document.body.appendChild(heart);
+
+                // Remove o coração depois da animação
+                setTimeout(() => {
+                    heart.remove();
+                }, 1500);
+            }
+        }
+    </script>
+
+</body>
+</html>
