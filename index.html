@@ -8,8 +8,12 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #333;
+            background-image: url('https://dl.dropboxusercontent.com/scl/fi/1nbu04ddrwv7syrkk525q/1735960672978.jpeg?rlkey=8ue0i17ophk55c3ydvv7ei3b0&dl=0');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000; /* Fallback para caso a imagem não carregue */
+            color: #fff;
         }
         .content {
             margin-top: 20px;
@@ -46,10 +50,26 @@
     <h1>Raiane, Te Amo Muito!</h1>
 
     <div class="content">
-        <p>Você é a razão do meu sorriso. Sem você, nada faria sentido!</p>
-        <p>Eu amo cada momento que passamos juntos, Raiane.</p>
-        <p>Você é meu sonho que virou realidade.</p>
-        <p>Com você, eu sou feliz. E a vida ao seu lado é perfeita!</p>
+        <p>Raiane, amor, você é o meu maior presente.</p>
+        <p>Amor, cada momento com você é único e especial.</p>
+        <p>Com você ao meu lado, amor, tudo é mais feliz.</p>
+        <p>Raiane, você é a razão pela qual eu acredito no amor.</p>
+        <p>Amor, seu sorriso ilumina meus dias mais escuros.</p>
+        <p>Você me faz querer ser alguém melhor todos os dias, amor.</p>
+        <p>Raiane, cada palavra sua é um carinho na minha alma.</p>
+        <p>Amor, você é minha paz em um mundo tão caótico.</p>
+        <p>Raiane, você transforma tudo em magia apenas por estar aqui.</p>
+        <p>Meu coração escolheu você, amor, hoje e sempre.</p>
+        <p>Raiane, você é a melodia perfeita no meu coração.</p>
+        <p>Amor, você é meu sol em dias nublados.</p>
+        <p>Você é a melhor parte de mim, amor.</p>
+        <p>Raiane, amor, te amar é meu maior privilégio.</p>
+        <p>Amor, minha felicidade começa e termina com você.</p>
+        <p>Você é o amor que sempre sonhei, Raiane.</p>
+        <p>Raiane, meu amor, você faz cada dia valer a pena.</p>
+        <p>Amor, eu faria qualquer coisa só para te ver sorrir.</p>
+        <p>Você é minha inspiração, amor, minha força e meu tudo.</p>
+        <p>Raiane, amor, meu coração é completamente seu.</p>
         <p>Agora, uma pergunta muito importante...</p>
         
         <!-- Pergunta "Casa comigo?" -->
@@ -60,28 +80,47 @@
     </div>
 
     <script>
-        // Função para exibir a resposta
         function resposta(respostaEscolhida) {
             const contentDiv = document.querySelector('.content');
+            if (!contentDiv) {
+                console.error("Erro: elemento .content não encontrado!");
+                return;
+            }
             if (respostaEscolhida === 'sim') {
-                contentDiv.innerHTML = "<p>Eu te amo muito, gata!</p>";
+                contentDiv.innerHTML = `
+                    <p>Eu te amo muito, gata!</p>
+                    <button onclick="mostrarTextoRomantico()">Texto pra bebê que disse sim</button>
+                `;
                 mostrarCoracao();
             } else if (respostaEscolhida === 'nao') {
                 contentDiv.innerHTML = "<p>Poxa, gata...</p>";
             }
         }
 
-        // Função para mostrar os corações
+        function mostrarTextoRomantico() {
+            const contentDiv = document.querySelector('.content');
+            if (!contentDiv) {
+                console.error("Erro: elemento .content não encontrado!");
+                return;
+            }
+            contentDiv.innerHTML = `
+                <p>Raiane, amor, eu te conheci e vi como você realmente era. Você é a garota dos meus sonhos.</p>
+                <p>Você esteve presente em todos os meus momentos e ter você é um sonho.</p>
+                <p>Eu te amo muito. Com você, fiz coisas e atingi metas que jamais imaginei.</p>
+                <p>Foi por você, foi por ter você ao meu lado. Você é o meu amor.</p>
+            `;
+            mostrarCoracao();
+        }
+
         function mostrarCoracao() {
             for (let i = 0; i < 5; i++) {
                 let heart = document.createElement('div');
                 heart.classList.add('heart');
-                heart.style.left = Math.random() * window.innerWidth + 'px'; // posição aleatória na tela
-                heart.style.top = Math.random() * window.innerHeight + 'px';  // posição aleatória na tela
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.top = Math.random() * window.innerHeight + 'px';
                 heart.innerHTML = "❤️";
                 document.body.appendChild(heart);
 
-                // Remove o coração depois da animação
                 setTimeout(() => {
                     heart.remove();
                 }, 1500);
